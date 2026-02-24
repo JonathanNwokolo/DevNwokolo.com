@@ -180,6 +180,3 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// ==================== CONSOLE MESSAGE ====================
-console.log('%c Jonathan Nwokolo Portfolio ', 'background: linear-gradient(135deg, #a855f7, #3b82f6, #06b6d4); color: white; font-size: 20px; padding: 10px 20px; border-radius: 10px; font-weight: bold;');
-console.log('%c Desenvolvido com paixão por tecnologia 🚀', 'color: #a855f7; font-size: 14px;');
