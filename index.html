@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jonathan Nwokolo - Desenvolvedor Full Stack em formação"
+    />
+    <title>Jonathan Nwokolo | Desenvolvedor Full Stack</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Jonathan Nwokolo</div>
+      </div>
+    </div>
+    
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Aurora Background -->
+    <div class="aurora-bg">
+      <div class="aurora-orb aurora-orb-1"></div>
+      <div class="aurora-orb aurora-orb-2"></div>
+      <div class="aurora-orb aurora-orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-text">DevNwokolo</span>
+          <span class="logo-dot"></span>
+        </a>
+
+        <div class="nav-links" id="nav-links">
+          <a href="#hero" class="nav-link" data-text="Início">Início</a>
+          <a href="#about" class="nav-link" data-text="Sobre">Sobre</a>
+          <a href="#skills" class="nav-link" data-text="Stack">Stack</a>
+          <a href="#projects" class="nav-link" data-text="Projetos">Projetos</a>
+          <a href="#contact" class="nav-link" data-text="Contato">Contato</a>
+        </div>
+
+        <div class="nav-cta">
+          <a
+            href="https://wa.me/5511980195144"
+            target="_blank"
+            class="magnetic-btn"
+          >
+            <span>Vamos conversar</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-content">
+        <a href="#hero" class="mobile-link">Início</a>
+        <a href="#about" class="mobile-link">Sobre</a>
+        <a href="#skills" class="mobile-link">Stack</a>
+        <a href="#projects" class="mobile-link">Projetos</a>
+        <a href="#contact" class="mobile-link">Contato</a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Disponível para oportunidades</span>
+          </div>
+
+          <h1 class="hero-title">
+            Olá, eu sou <span class="gradient-text">Jonathan Nwokolo</span>
+          </h1>
+          <h2 class="hero-subtitle">
+            <span class="typing-text"></span>
+          </h2>
+          <p class="hero-description">
+            Estudante de Análise e Desenvolvimento de Sistemas, apaixonado por
+            tecnologia e em constante evolução na área de programação.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <i class="fas fa-code"></i>
+              <span>Ver Projetos</span>
+            </a>
+            <a href="https://web-curriculo-amber.vercel.app/" class="btn-secondary">
+              <i class="fas fa-envelope"></i>
+              <span>Meu Currículo</span>
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a
+              href="https://github.com"
+              target="_blank"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/joh_nwokolo?igsh=bjE5cXNtc2RveWZ2"
+              target="_blank"
+              class="social-link"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="image-wrapper">
+            <img src="img/minhafoto.jpeg" alt="Jonathan Nwokolo" />
+            <div class="image-glow"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <a href="#about">
+          <div class="scroll-line"></div>
+          <span>Scroll</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Marca infinita -->
+    <div class="marquee-section">
+      <div class="marquee">
+        <div class="marquee-content">
+          <span>REACT</span>
+          <span class="marquee-dot">◆</span>
+          <span>JAVASCRIPT</span>
+          <span class="marquee-dot">◆</span>
+          <span>NODE.JS</span>
+          <span class="marquee-dot">◆</span>
+          <span>HTML5</span>
+          <span class="marquee-dot">◆</span>
+          <span>CSS3</span>
+          <span class="marquee-dot">◆</span>
+          <span>MONGODB</span>
+          <span class="marquee-dot">◆</span>
+          <span>GIT</span>
+          <span class="marquee-dot">◆</span>
+          <span>FIGMA</span>
+          <span class="marquee-dot">◆</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>REACT</span>
+          <span class="marquee-dot">◆</span>
+          <span>JAVASCRIPT</span>
+          <span class="marquee-dot">◆</span>
+          <span>NODE.JS</span>
+          <span class="marquee-dot">◆</span>
+          <span>HTML5</span>
+          <span class="marquee-dot">◆</span>
+          <span>CSS3</span>
+          <span class="marquee-dot">◆</span>
+          <span>MONGODB</span>
+          <span class="marquee-dot">◆</span>
+          <span>GIT</span>
+          <span class="marquee-dot">◆</span>
+          <span>FIGMA</span>
+          <span class="marquee-dot">◆</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="section-container">
+        <div class="about-grid">
+          <div class="about-header">
+            <span class="section-label">Sobre mim</span>
+            <h2 class="section-title">
+              Desenvolvedor Full Stack
+              <span class="highlight">em Formação</span>
+            </h2>
+          </div>
+
+          <div class="about-content">
+            <div class="about-text">
+              <p class="lead">
+                Sou Jonathan Nwokolo, estudante de
+                <strong>Análise e Desenvolvimento de Sistemas</strong>
+                e iniciante na área de TI. Minha jornada começou com a
+                descoberta do fascinante mundo da programação, e desde então
+                tenho me dedicado intensamente ao aprendizado.
+              </p>
+              <p>
+                Atualmente estou focado em dominar as tecnologias fundamentais
+                do desenvolvimento web:
+                <strong>HTML</strong>, <strong>CSS</strong> e
+                <strong>JavaScript</strong>. Meu objetivo é me tornar um
+                <strong>Desenvolvedor Full Stack</strong> completo, capaz de
+                criar soluções inovadoras do front-end ao back-end.
+              </p>
+              <p>
+                Acredito no aprendizado contínuo e na prática constante. Cada
+                projeto é uma oportunidade de crescimento e cada desafio é uma
+                chance de evoluir como profissional.
+              </p>
+            </div>
+
+            <div class="about-cards">
+              <div class="info-card glass-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                  <div class="card-icon-wrap">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <h3>Educação</h3>
+                  <p>Análise e Desenvolvimento de Sistemas</p>
+                </div>
+              </div>
+              <div class="info-card glass-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                  <div class="card-icon-wrap">
+                    <i class="fas fa-laptop-code"></i>
+                  </div>
+                  <h3>Foco Atual</h3>
+                  <p>HTML, CSS & JavaScript</p>
+                </div>
+              </div>
+              <div class="info-card glass-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                  <div class="card-icon-wrap">
+                    <i class="fas fa-rocket"></i>
+                  </div>
+                  <h3>Objetivo</h3>
+                  <p>Desenvolvedor Full Stack</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="section-container">
+        <div class="skills-header">
+          <span class="section-label">Tech Stack</span>
+          <h2 class="section-title">
+            Ferramentas que estou<br />
+            <span class="highlight">aprendendo e dominando</span>
+          </h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-html5"></i>
+            </div>
+            <h3>HTML5</h3>
+            <p>Estruturação semântica</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3>CSS3</h3>
+            <p>Flexbox & Grid Layout</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-js"></i>
+            </div>
+            <h3>JavaScript</h3>
+            <p>ES6+ & DOM</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <h3>React</h3>
+            <p>Hooks & Components</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h3>Node.js</h3>
+            <p>APIs RESTful</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>MongoDB</h3>
+            <p>NoSQL Database</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-git-alt"></i>
+            </div>
+            <h3>Git</h3>
+            <p>Controle de versão</p>
+            <div class="skill-glow"></div>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <div class="skill-icon">
+              <i class="fab fa-figma"></i>
+            </div>
+            <h3>Figma</h3>
+            <p>UI/UX Design</p>
+            <div class="skill-glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="section-container">
+        <div class="projects-header">
+          <span class="section-label">Projetos</span>
+          <h2 class="section-title">
+            Alguns dos projetos que desenvolvi<br />
+            <span class="highlight">durante meu aprendizado</span>
+          </h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img src="img/projetonlw.png" alt="NLW Agents" loading="lazy" />
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://nlw-agents-wine.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                
+                <span class="project-type">Web App</span>
+              </div>
+              <h3 class="project-title">NLW Agents</h3>
+              <p class="project-description">
+                Assistente de Meta para estratégias e dicas de jogos. Projeto
+                desenvolvido durante o NLW da Rocketseat.
+              </p>
+              <div class="project-stack">
+                <span>CSS</span>
+                <span>HTML</span>
+                <span>IA</span>
+                <span>Gaming</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img src="img/Juliosapp.png" alt="Julius App" loading="lazy" />
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://julios-app.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+               
+                <span class="project-type">Finance</span>
+              </div>
+              <h3 class="project-title">Julius - Controle Financeiro</h3>
+              <p class="project-description">
+                Aplicação completa de controle financeiro para gerenciar
+                entradas, saídas e acompanhar a evolução do saldo.
+              </p>
+              <div class="project-stack">
+                <span>JavaScript</span>
+                <span>Charts</span>
+                <span>LocalStorage</span>
+                <span>Vue.js</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img
+                src="img/projetostrangersthings.png"
+                alt="Stranger Things Experience"
+                loading="lazy"
+              />
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://dev-art-stranger-things-eight.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                
+                <span class="project-type">Landing Page</span>
+              </div>
+              <h3 class="project-title">Stranger Things Experience</h3>
+              <p class="project-description">
+                Landing page temática sobre a experiência imersiva de Stranger
+                Things com seleção de cidades e galeria.
+              </p>
+              <div class="project-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img
+                src="img/cafeterianocode.png"
+                alt="Cafeteria NoCode"
+                loading="lazy"
+              />
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://cafeteria-no-code.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+               
+                <span class="project-type">Website</span>
+              </div>
+              <h3 class="project-title">Cafeteria NoCode</h3>
+              <p class="project-description">
+                Website institucional para cafeteria com catálogo de produtos,
+                localização e informações de contato.
+              </p>
+              <div class="project-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Responsive</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img
+                src="img/lojadevclub.png"
+                alt="Loja Dev Club"
+                loading="lazy"
+              />
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://loja-dev-club.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-type">E-commerce</span>
+              </div>
+              <h3 class="project-title">Loja Dev Club</h3>
+              <p class="project-description">
+                E-commerce elegante de produtos Apple com Apple Watch, AirPods
+                Max e Vision Pro.
+              </p>
+              <div class="project-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Landing Page</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img
+                src="img/starbucks.png"
+                alt="Clone Starbucks"
+                loading="lazy"
+              />
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://site-star-bucks-eta.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+               
+                <span class="project-type">Clone</span>
+              </div>
+              <h3 class="project-title">Clone Starbucks</h3>
+              <p class="project-description">
+                Recriação da interface do site Starbucks com interatividade e
+                galeria de produtos.
+              </p>
+              <div class="project-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="section-container">
+        <div class="contact-wrapper">
+          <div class="contact-content">
+            <span class="section-label">Contato</span>
+            <h2 class="contact-title">
+              Vamos criar algo<br />
+              <span class="highlight">incrível juntos?</span>
+            </h2>
+            <p class="contact-text">
+              Estou sempre aberto a novas oportunidades, colaborações e
+              conversas sobre tecnologia. Se você tem um projeto em mente ou
+              apenas quer trocar uma ideia, entre em contato!
+            </p>
+
+            <div class="contact-info">
+              <a
+                href="mailto:jonathan.nwokolo@example.com"
+                class="contact-link"
+              >
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value"
+                    >jonathan.nwokolo@gmail.com</span
+                  >
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/5511980195144"
+                target="_blank"
+                class="contact-link"
+              >
+                <div class="contact-icon">
+                  <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">WhatsApp</span>
+                  <span class="contact-value">+55 (11) 98019-5144</span>
+                </div>
+              </a>
+
+              <div class="contact-link">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Localização</span>
+                  <span class="contact-value">São Paulo, Brasil</span>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script
+      async
+      src="https://app.gptmaker.ai/widget/3EF2FAA57A9283754D983650DB3FCBAC/float.js"
+    ></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a href="#hero" class="footer-logo">
+              <span class="logo-text">DevNwokolo</span>
+              <span class="logo-dot"></span>
+            </a>
+            <p class="footer-tagline">Transformando ideias em código</p>
+          </div>
+
+          <nav class="footer-nav">
+            <a href="#hero">Início</a>
+            <a href="#about">Sobre</a>
+            <a href="#skills">Stack</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
+          </nav>
+
+          <div class="footer-social">
+            <a href="https://github.com" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/joh_nwokolo"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Jonathan Nwokolo. Todos os direitos reservados.</p>
+          <p class="footer-made">
+           Desenvolvido com <span class="heart">♥</span> e muito ☕
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
