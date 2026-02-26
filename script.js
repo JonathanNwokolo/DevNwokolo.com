@@ -185,7 +185,8 @@ document.addEventListener('keydown', (e) => {
   const STORAGE_KEY = 'devnwokolo_starred';
   
   
- const API_URL = 'https://starsapi-portfolio.onrender.com/api/stars';
+ 
+ const API_URL = 'https://starsapi.onrender.com/api/stars';
 
   const widget     = document.getElementById('star-widget');
   const btn        = document.getElementById('star-btn');
