@@ -180,3 +180,111 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ==================== STAR LIKE WIDGET (INTEGRADO COM A API) ====================
+(function () {
+  const STORAGE_KEY = 'devnwokolo_starred';
+  
+  
+ const API_URL = 'https://starsapi-portfolio.onrender.com/api/stars';
+
+  const widget     = document.getElementById('star-widget');
+  const btn        = document.getElementById('star-btn');
+  const countEl    = document.getElementById('star-count');
+  const particles  = document.getElementById('star-particles');
+  const toast      = document.getElementById('star-toast');
+
+  if (!btn || !countEl) return;
+
+  let isStarred = localStorage.getItem(STORAGE_KEY) === 'true';
+  let contagemReal = 0; // Vai guardar o número oficial do Banco de Dados
+
+  function render(animate) {
+    countEl.textContent = contagemReal; // Atualiza com o número real do banco
+    btn.classList.toggle('starred', isStarred);
+    widget.classList.toggle('is-starred', isStarred);
+    if (animate) {
+      countEl.classList.remove('bumping');
+      void countEl.offsetWidth; // force reflow
+      countEl.classList.add('bumping');
+    }
+  }
+
+  function burst() {
+    particles.innerHTML = '';
+    const total = 12;
+    for (let i = 0; i < total; i++) {
+      const el  = document.createElement('span');
+      el.classList.add('particle');
+      const angle = (i / total) * 360 + (Math.random() * 15 - 7.5);
+      const dist  = 30 + Math.random() * 28;
+      const rad   = (angle * Math.PI) / 180;
+      el.style.setProperty('--tx', `${Math.cos(rad) * dist}px`);
+      el.style.setProperty('--ty', `${Math.sin(rad) * dist}px`);
+      el.style.setProperty('--dur', `${0.5 + Math.random() * 0.3}s`);
+      el.style.animationDelay = `${i * 0.018}s`;
+      particles.appendChild(el);
+    }
+    setTimeout(() => { particles.innerHTML = ''; }, 1000);
+  }
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  // --- BUSCA OS DADOS DA API ---
+  async function carregarDoBanco() {
+    try {
+      countEl.textContent = '...'; 
+      const resposta = await fetch(API_URL);
+      const dados = await resposta.json();
+      
+      contagemReal = dados.count; 
+      render(false); 
+    } catch (erro) {
+      console.error('Erro ao buscar da API:', erro);
+      countEl.textContent = 'Erro';
+    }
+  }
+
+  // --- ENVIA O CLIQUE PARA A API ---
+  btn.addEventListener('click', async () => {
+    if (isStarred) {
+      showToast('Você já deixou sua estrela! ⭐');
+      return; 
+    }
+
+    try {
+      btn.style.pointerEvents = 'none';
+
+      // Dispara o comando POST para a API na porta 3000
+      const resposta = await fetch(API_URL, { method: 'POST' });
+      const dados = await resposta.json();
+
+      contagemReal = dados.count; 
+      isStarred = true;
+      localStorage.setItem(STORAGE_KEY, 'true'); 
+
+      burst();
+      showToast('⭐ Obrigado por curtir o meu portfólio!');
+      render(true);
+
+    } catch (erro) {
+      console.error('Erro ao salvar no banco:', erro);
+      showToast('Ops! Erro de conexão.');
+    } finally {
+      btn.style.pointerEvents = 'auto';
+    }
+  });
+
+  if (isStarred) {
+    btn.classList.add('starred');
+    widget.classList.add('is-starred');
+  }
+  
+  // Chama a função assim que o site abre
+  carregarDoBanco();
+
+})();
