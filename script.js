@@ -183,6 +183,7 @@ document.addEventListener('keydown', (e) => {
 // ==================== STAR LIKE WIDGET (INTEGRADO COM A API) ====================
 (function () {
   const STORAGE_KEY = 'devnwokolo_starred';
+  const HINT_SHOWN_KEY = 'devnwokolo_hint_shown';
   
   
  
@@ -193,11 +194,54 @@ document.addEventListener('keydown', (e) => {
   const countEl    = document.getElementById('star-count');
   const particles  = document.getElementById('star-particles');
   const toast      = document.getElementById('star-toast');
+  const attentionHint = document.getElementById('star-attention-hint');
+  const tooltip = document.querySelector('.star-tooltip');
 
   if (!btn || !countEl) return;
 
   let isStarred = localStorage.getItem(STORAGE_KEY) === 'true';
+  let hintShown = localStorage.getItem(HINT_SHOWN_KEY) === 'true';
   let contagemReal = 0; // Vai guardar o número oficial do Banco de Dados
+
+  // ==================== DESTAQUE DE ATENÇÃO ====================
+  function showAttentionHint() {
+    // Só mostra se o usuário ainda não deu estrela e não viu o hint antes
+    if (!isStarred && !hintShown) {
+      setTimeout(() => {
+        // Adiciona animação de shake no botão
+        btn.classList.add('attention-shake');
+        
+        // Mostra o hint com a seta e texto
+        if (attentionHint) {
+          attentionHint.classList.add('show');
+        }
+        
+        // Mostra a tooltip automaticamente
+        if (tooltip) {
+          tooltip.classList.add('show');
+        }
+        
+        // NÃO remove mais automaticamente - fica até a pessoa dar like
+        
+      }, 4000); // Mostra após 4 segundos
+    }
+  }
+
+  function hideAttentionHint() {
+    btn.classList.remove('attention-shake');
+    
+    if (attentionHint) {
+      attentionHint.classList.remove('show');
+    }
+    
+    if (tooltip) {
+      tooltip.classList.remove('show');
+    }
+    
+    // Marca que o hint já foi mostrado
+    localStorage.setItem(HINT_SHOWN_KEY, 'true');
+    hintShown = true;
+  }
 
   function render(animate) {
     countEl.textContent = contagemReal; // Atualiza com o número real do banco
@@ -252,6 +296,9 @@ document.addEventListener('keydown', (e) => {
 
   // --- ENVIA O CLIQUE PARA A API ---
   btn.addEventListener('click', async () => {
+    // Esconde o destaque de atenção quando o usuário clica
+    hideAttentionHint();
+    
     if (isStarred) {
       showToast('Você já deixou sua estrela! ⭐');
       return; 
@@ -287,5 +334,8 @@ document.addEventListener('keydown', (e) => {
   
   // Chama a função assim que o site abre
   carregarDoBanco();
+  
+  // Mostra o destaque de atenção após alguns segundos
+  showAttentionHint();
 
 })();

@@ -2052,6 +2052,51 @@ img {
   box-shadow: 0 0 0 10px rgba(168, 85, 247, 0.08);
 }
 
+/* Animações de Atenção para Orientar o Usuário */
+.star-btn.attention-shake {
+  animation:
+    attention-shake 0.6s ease-in-out,
+    attention-pulse 2s ease-in-out infinite;
+}
+
+@keyframes attention-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-3px) rotate(-5deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(3px) rotate(5deg);
+  }
+}
+
+@keyframes attention-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(251, 191, 36, 0.7),
+      0 0 20px rgba(251, 191, 36, 0.3),
+      inset 0 0 15px rgba(251, 191, 36, 0.2);
+    border-color: rgba(251, 191, 36, 0.6);
+  }
+  50% {
+    box-shadow:
+      0 0 0 15px rgba(251, 191, 36, 0),
+      0 0 35px rgba(251, 191, 36, 0.5),
+      inset 0 0 20px rgba(251, 191, 36, 0.3);
+    border-color: rgba(251, 191, 36, 0.9);
+  }
+}
+
 .star-btn.starred {
   border-color: rgba(251, 191, 36, 0.45);
   background: rgba(251, 191, 36, 0.08);
@@ -2225,6 +2270,12 @@ img {
   transform: translateY(-50%) translateX(4px);
 }
 
+/* Tooltip visível automaticamente quando tem classe show */
+.star-tooltip.show {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
 .star-tooltip::after {
   content: "";
   position: absolute;
@@ -2238,6 +2289,67 @@ img {
 .star-btn-wrapper:hover .star-tooltip {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
+}
+
+/* ==================== DESTAQUE DE ATENÇÃO ==================== */
+.star-attention-hint {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: -15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 998;
+}
+
+.star-attention-hint.show {
+  opacity: 1;
+  animation: hint-bounce 2s ease-in-out infinite;
+}
+
+@keyframes hint-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hint-text {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.15),
+    rgba(249, 115, 22, 0.15)
+  );
+  border: 1.5px solid rgba(251, 191, 36, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fbbf24;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.2);
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+@keyframes text-glow {
+  0%,
+  100% {
+    box-shadow: 0 4px 16px rgba(251, 191, 36, 0.2);
+    border-color: rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(251, 191, 36, 0.4);
+    border-color: rgba(251, 191, 36, 0.6);
+  }
 }
 
 /* Toast */
@@ -2274,5 +2386,17 @@ img {
   .star-toast {
     bottom: 96px;
     right: 16px;
+  }
+
+  /* Ajusta o destaque de atenção para mobile */
+  .star-attention-hint {
+    bottom: calc(100% + 8px);
+    right: -10px;
+    font-size: 12px;
+  }
+
+  .hint-text {
+    font-size: 12px;
+    padding: 8px 12px;
   }
 }
