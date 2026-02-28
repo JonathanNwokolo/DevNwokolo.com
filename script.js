@@ -15,14 +15,7 @@ const navToggle = document.getElementById('nav-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    nav?.classList.add('scrolled');
-  } else {
-    nav?.classList.remove('scrolled');
-  }
-});
+// Navbar scroll effect is handled by the unified scroll handler below
 
 // Mobile menu toggle
 navToggle?.addEventListener('click', () => {
@@ -104,72 +97,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ==================== SCROLL PROGRESS ====================
 const scrollProgress = document.getElementById('scroll-progress');
+// Scroll progress is handled by the unified scroll handler below
 
-window.addEventListener('scroll', () => {
-  if (scrollProgress) {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const progress = (scrollTop / scrollHeight) * 100;
-    scrollProgress.style.width = progress + '%';
-  }
-});
+// ==================== TILT EFFECT FOR CARDS (desktop only) ====================
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-// ==================== TILT EFFECT FOR CARDS ====================
-const tiltCards = document.querySelectorAll('[data-tilt]');
-
-tiltCards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-    
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+if (!isTouchDevice) {
+  const tiltCards = document.querySelectorAll('[data-tilt]');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
   });
-  
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-  });
-});
+}
 
 // ==================== ACTIVE NAV LINK ====================
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 200) {
-      current = section.getAttribute('id');
-    }
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
+// Active nav link is handled by the unified scroll handler below
 
 // ==================== PARALLAX EFFECT FOR AURORA ====================
 const auroraOrbs = document.querySelectorAll('.aurora-orb');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  
-  auroraOrbs.forEach((orb, index) => {
-    const speed = (index + 1) * 0.1;
-    orb.style.transform = `translateY(${scrollY * speed}px)`;
-  });
-});
+// Aurora parallax is handled by the unified scroll handler below
 
 // ==================== KEYBOARD NAVIGATION ====================
 document.addEventListener('keydown', (e) => {
@@ -179,6 +138,133 @@ document.addEventListener('keydown', (e) => {
     document.body.style.overflow = '';
   }
 });
+
+// ==================== BACK TO TOP BUTTON ====================
+const backToTopBtn = document.getElementById('back-to-top');
+const bttCircle = document.getElementById('btt-circle');
+const circumference = 2 * Math.PI * 16; // r=16
+
+if (backToTopBtn && bttCircle) {
+  bttCircle.style.strokeDasharray = circumference;
+  bttCircle.style.strokeDashoffset = circumference;
+  // Back-to-top scroll logic is handled by the unified scroll handler below
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ==================== UNIFIED SCROLL HANDLER (RAF-throttled) ====================
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+
+      // 1. Navbar scroll effect
+      if (scrollTop > 100) {
+        nav?.classList.add('scrolled');
+      } else {
+        nav?.classList.remove('scrolled');
+      }
+
+      // 2. Scroll progress bar
+      if (scrollProgress) {
+        scrollProgress.style.width = (progress * 100) + '%';
+      }
+
+      // 3. Active nav link
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollTop >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+
+      // 4. Aurora parallax (skip on mobile for performance)
+      if (!isTouchDevice) {
+        auroraOrbs.forEach((orb, index) => {
+          const speed = (index + 1) * 0.1;
+          orb.style.transform = `translateY(${scrollTop * speed}px)`;
+        });
+      }
+
+      // 5. Back-to-top button
+      if (backToTopBtn && bttCircle) {
+        if (scrollTop > 400) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+        const offset = circumference - (progress * circumference);
+        bttCircle.style.strokeDashoffset = offset;
+      }
+
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+// ==================== VIDEO LAZY PLAY (Intersection Observer) ====================
+const projectVideo = document.querySelector('.featured-project-image video');
+if (projectVideo) {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        projectVideo.play().catch(() => {});
+      } else {
+        projectVideo.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+  videoObserver.observe(projectVideo);
+}
+
+// ==================== EASTER EGG - HOMENAGEM A DEUS ====================
+(function () {
+  const logo = document.querySelector('.nav-logo');
+  const overlay = document.getElementById('easter-egg-overlay');
+  const closeBtn = document.getElementById('ee-close');
+
+  if (!logo || !overlay) return;
+
+  logo.addEventListener('click', (e) => {
+    // Só ativa o easter egg se clicar no logo (não na navegação por hash)
+    e.preventDefault();
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeEasterEgg() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn?.addEventListener('click', closeEasterEgg);
+
+  // Fechar clicando fora do conteúdo
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeEasterEgg();
+  });
+
+  // Fechar com Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeEasterEgg();
+    }
+  });
+})();
 
 // ==================== STAR LIKE WIDGET (INTEGRADO COM A API) ====================
 (function () {
