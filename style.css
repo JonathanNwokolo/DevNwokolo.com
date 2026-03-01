@@ -140,10 +140,12 @@ img {
 .aurora-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(80px);
   opacity: 0.4;
   animation: aurora-float 20s ease-in-out infinite;
   will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .aurora-orb-1 {
@@ -281,13 +283,17 @@ img {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 1.5px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   border-radius: 2px;
   transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -318,6 +324,9 @@ img {
   font-size: 0.9rem;
   font-weight: 500;
   transition: var(--transition-fast);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .nav-cta .magnetic-btn:hover {
@@ -606,6 +615,7 @@ img {
 .hero-image {
   position: relative;
   animation: fade-in-up 1s var(--ease-out-expo) 0.4s both;
+  will-change: transform, opacity;
 }
 
 .image-wrapper {
@@ -640,8 +650,10 @@ img {
   border-radius: 23px;
   z-index: 1;
   opacity: 0.6;
-  filter: blur(25px);
+  filter: blur(20px);
   animation: glow-pulse 3s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes glow-pulse {
@@ -1103,6 +1115,9 @@ img {
   text-align: center;
   overflow: hidden;
   transition: var(--transition-fast);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .skill-card:hover {
@@ -1194,16 +1209,23 @@ img {
   position: relative;
   overflow: hidden;
   height: 250px;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
-.project-image img {
+.project-image img,
+.project-image video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition-medium);
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
-.project-card:hover .project-image img {
+.project-card:hover .project-image img,
+.project-card:hover .project-image video {
   transform: scale(1.05);
 }
 
@@ -1217,6 +1239,7 @@ img {
   padding: 24px;
   opacity: 0;
   transition: var(--transition-fast);
+  will-change: opacity;
 }
 
 .project-card:hover .project-overlay {
@@ -1241,6 +1264,8 @@ img {
   font-size: 1rem;
   transition: var(--transition-fast);
   transform: translateY(20px);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .project-card:hover .project-btn {
@@ -1370,7 +1395,10 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition-medium);
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
 .project-card--featured:hover .featured-project-image img,
@@ -1388,6 +1416,7 @@ img {
   padding-bottom: 32px;
   opacity: 0;
   transition: var(--transition-fast);
+  will-change: opacity;
 }
 
 .project-card--featured:hover .featured-overlay {
@@ -1407,6 +1436,8 @@ img {
   text-decoration: none;
   transform: translateY(16px);
   transition: var(--transition-fast);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .project-card--featured:hover .featured-cta {

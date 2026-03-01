@@ -217,18 +217,24 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ==================== VIDEO LAZY PLAY (Intersection Observer) ====================
-const projectVideo = document.querySelector('.featured-project-image video');
-if (projectVideo) {
+// Observer para TODOS os vídeos da página (economia de recursos)
+const allVideos = document.querySelectorAll('video');
+if (allVideos.length > 0) {
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const video = entry.target;
       if (entry.isIntersecting) {
-        projectVideo.play().catch(() => {});
+        video.play().catch(() => {});
       } else {
-        projectVideo.pause();
+        video.pause();
       }
     });
-  }, { threshold: 0.25 });
-  videoObserver.observe(projectVideo);
+  }, { 
+    threshold: 0.25,
+    rootMargin: '50px' // Começa a carregar um pouco antes
+  });
+  
+  allVideos.forEach(video => videoObserver.observe(video));
 }
 
 // ==================== EASTER EGG - HOMENAGEM A DEUS ====================
