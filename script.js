@@ -38,10 +38,10 @@ mobileLinks.forEach((link) => {
 // ==================== TYPING EFFECT ====================
 const typingText = document.querySelector(".typing-text");
 const phrases = [
+  "Transformando café em código e padding em dor de cabeça",
+  "99 problemas, e 98 são um ; faltando",
+  " Eterno Aprendiz ",
   "Desenvolvedor Full Stack",
-  "Estudante de Análise e Desenvolvimento de Sistemas",
-  "Apaixonado por Tecnologia",
-  "Aprendiz Dedicado",
 ];
 
 let phraseIndex = 0;
