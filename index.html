@@ -57,16 +57,7 @@
           <a href="#contact" class="nav-link" data-text="Contato">Contato</a>
         </div>
 
-        <div class="nav-cta">
-          <a
-            href="https://wa.me/5511980195144"
-            target="_blank"
-            class="magnetic-btn"
-          >
-            <span>Vamos conversar</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
+
 
         <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
           <span></span>
@@ -418,16 +409,102 @@
             </a>
           </div>
         </article>
+        <!-- PROJETO WEPARTY - EM PRODUÇÃO -->
+        <article class="project-card project-card--featured">
+          <div class="featured-badge">
+            <i class="fas fa-rocket"></i>
+            <span>Em Produção</span>
+          </div>
+          <div class="featured-image-link">
+            <div class="project-image featured-project-image">
+              <div class="weparty-carousel-wrapper">
+                <div class="carousel-slides" id="weparty-carousel">
+                  <div class="carousel-slide active">
+                    <img src="img/stragerthingsweparty.png" alt="Feed WeParty" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="img/wepartylogin.png" alt="Login WeParty" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="img/pageperfilweparty.png" alt="Perfil WeParty" />
+                  </div>
+                </div>
 
+              </div>
+              <div class="carousel-dots" id="carousel-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content featured-project-content">
+            <div class="project-meta">
+              <span class="project-year">2026</span>
+              <span class="project-type">Rede Social</span>
+            </div>
+            <h3 class="project-title featured-title">WeParty</h3>
+            <p class="project-description">
+              Rede social moderna focada na descoberta e compartilhamento de eventos. A plataforma conecta pessoas a experiências únicas, permitindo que usuários descubram eventos próximos, sigam organizadores e interajam com uma comunidade apaixonada por entretenimento.
+            </p>
+            <div class="project-features">
+              <div class="feature-item">
+                <i class="fas fa-feed"></i>
+                <span>Feed Dinâmico com Recomendações</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <span>Sistema de Interação Social</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-search"></i>
+                <span>Busca e Filtros Avançados</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-user-circle"></i>
+                <span>Perfil Personalizável</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-globe"></i>
+                <span>Internacionalização (i18n)</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Design Responsivo</span>
+              </div>
+            </div>
+            <div class="project-stack">
+              <span>Vue.js</span>
+              <span>Node.js</span>
+              <span>Axios</span>
+              <span>i18n</span>
+              <span>Responsivo</span>
+              <span>Vuetify</span>
+              <span>Vite</span>
+              <span>TypeScript</span>
+            </div>
+            <div class="project-status">
+              <i class="fas fa-code-branch"></i>
+              <span>Projeto em desenvolvimento ativo</span>
+            </div>
+          </div>
+        </article>
         <div class="projects-grid">
           <!-- Project 1 -->
           <article class="project-card">
             <div class="project-image">
-              <img src="img/projetonlw.png" alt="NLW Agents" loading="lazy" />
+              <video
+                src="img/stragerthingsvideo.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
               <div class="project-overlay">
                 <div class="project-actions">
                   <a
-                    href="https://nlw-agents-wine.vercel.app/"
+                    href="https://dev-art-stranger-things-eight.vercel.app/"
                     target="_blank"
                     class="project-btn"
                     aria-label="Ver projeto"
@@ -435,7 +512,7 @@
                     <i class="fas fa-external-link-alt"></i>
                   </a>
                   <a
-                    href="https://github.com/JonathanNwokolo/NLW-Agents"
+                    href="https://github.com/JonathanNwokolo/DevArt-StrangerThings-"
                     target="_blank"
                     class="project-btn"
                     aria-label="Ver código"
@@ -448,23 +525,121 @@
             <div class="project-content">
               <div class="project-meta">
                 
-                <span class="project-type">Web App</span>
+                <span class="project-type">Landing Page</span>
               </div>
-              <h3 class="project-title">NLW Agents</h3>
+              <h3 class="project-title">Stranger Things Experience</h3>
               <p class="project-description">
-                Assistente de Meta para estratégias e dicas de jogos. Projeto
-                desenvolvido durante o NLW da Rocketseat.
+                Landing page temática sobre a experiência imersiva de Stranger
+                Things com seleção de cidades e galeria.
               </p>
               <div class="project-stack">
-                <span>CSS</span>
                 <span>HTML</span>
-                <span>IA</span>
-                <span>Gaming</span>
+                <span>CSS</span>
+                <span>Design</span>
               </div>
             </div>
           </article>
 
           <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-image">
+              <video
+                src="img/supermariovideo.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://super-mario-ashy.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com/JonathanNwokolo/SuperMario"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+               
+                <span class="project-type">Game</span>
+              </div>
+              <h3 class="project-title">Super Mario</h3>
+              <p class="project-description">
+                Jogo interativo inspirado no clássico Super Mario, com animações,
+                controles e mecânicas de plataforma.
+              </p>
+              <div class="project-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-image">
+              <video
+                src="img/rickandmortyvideo.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a
+                    href="https://rick-and-marty-memory.vercel.app/"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver projeto"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a
+                    href="https://github.com/JonathanNwokolo/RickAndMarty-Memory"
+                    target="_blank"
+                    class="project-btn"
+                    aria-label="Ver código"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+               
+                <span class="project-type">Game</span>
+              </div>
+              <h3 class="project-title">Rick and Morty Memory</h3>
+              <p class="project-description">
+                Jogo da memória temático de Rick and Morty com cartas dos personagens da série e mecânicas interativas.
+              </p>
+              <div class="project-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
           <article class="project-card">
             <div class="project-image">
               <video
@@ -515,57 +690,7 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card">
-            <div class="project-image">
-              <video
-                src="img/stragerthingsvideo.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="none"
-              ></video>
-              <div class="project-overlay">
-                <div class="project-actions">
-                  <a
-                    href="https://dev-art-stranger-things-eight.vercel.app/"
-                    target="_blank"
-                    class="project-btn"
-                    aria-label="Ver projeto"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                  <a
-                    href="https://github.com/JonathanNwokolo/DevArt-StrangerThings-"
-                    target="_blank"
-                    class="project-btn"
-                    aria-label="Ver código"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-                
-                <span class="project-type">Landing Page</span>
-              </div>
-              <h3 class="project-title">Stranger Things Experience</h3>
-              <p class="project-description">
-                Landing page temática sobre a experiência imersiva de Stranger
-                Things com seleção de cidades e galeria.
-              </p>
-              <div class="project-stack">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Design</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 4 -->
+          <!-- Project 5 -->
           <article class="project-card">
             <div class="project-image">
               <video
@@ -612,105 +737,6 @@
                 <span>CSS</span>
                 <span>JavaScript</span>
                 <span>API</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 6 -->
-          <article class="project-card">
-            <div class="project-image">
-              <video
-                src="img/supermariovideo.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="none"
-              ></video>
-              <div class="project-overlay">
-                <div class="project-actions">
-                  <a
-                    href="https://super-mario-ashy.vercel.app/"
-                    target="_blank"
-                    class="project-btn"
-                    aria-label="Ver projeto"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                  <a
-                    href="https://github.com/JonathanNwokolo/SuperMario"
-                    target="_blank"
-                    class="project-btn"
-                    aria-label="Ver código"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-               
-                <span class="project-type">Game</span>
-              </div>
-              <h3 class="project-title">Super Mario</h3>
-              <p class="project-description">
-                Jogo interativo inspirado no clássico Super Mario, com animações,
-                controles e mecânicas de plataforma.
-              </p>
-              <div class="project-stack">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 7 -->
-          <article class="project-card">
-            <div class="project-image">
-              <video
-                src="img/rickandmortyvideo.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="none"
-              ></video>
-              <div class="project-overlay">
-                <div class="project-actions">
-                  <a
-                    href="https://rick-and-marty-memory.vercel.app/"
-                    target="_blank"
-                    class="project-btn"
-                    aria-label="Ver projeto"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                  <a
-                    href="https://github.com/JonathanNwokolo/RickAndMarty-Memory"
-                    target="_blank"
-                    class="project-btn"
-                    aria-label="Ver código"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-               
-                <span class="project-type">Game</span>
-              </div>
-              <h3 class="project-title">Rick and Morty Memory</h3>
-              <p class="project-description">
-                Jogo da memória temático de Rick and Morty com cartas dos personagens da série e mecânicas interativas.
-              </p>
-              <div class="project-stack">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
               </div>
             </div>
           </article>
@@ -831,9 +857,6 @@
         </svg>
       </span>
     </button>
-
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- ⭐ Star Like Widget -->
     <div class="star-widget" id="star-widget">
